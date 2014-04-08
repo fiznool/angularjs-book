@@ -1,6 +1,8 @@
+/* jshint ignore:start */
+'use strict';
+
 describe('Controllers', function() {
   var $scope, ctrl;
-  //you need to indicate your module in a test
   beforeEach(module('guthub'));
   beforeEach(function() {
     this.addMatchers({
@@ -12,22 +14,22 @@ describe('Controllers', function() {
 
   describe('ListCtrl', function() {
     var mockBackend, recipe;
-    // The _$httpBackend_ is the same as $httpBackend. Only written this way to
-    // differentiate between injected variables and local variables
     beforeEach(inject(function($rootScope, $controller, _$httpBackend_, Recipe) {
       recipe = Recipe;
       mockBackend = _$httpBackend_;
       $scope = $rootScope.$new();
       ctrl = $controller('ListCtrl', {
         $scope: $scope,
-        recipes: [1, 2, 3]
+        recipes: [1,2,3]
       });
     }));
 
     it('should have list of recipes', function() {
-      expect($scope.recipes).toEqual([1, 2, 3]);
-    });
+      expect($scope.recipes).toEqual([1,2,3]);
+    })
+
   });
+
 
   describe('MultiRecipeLoader', function() {
     var mockBackend, recipe, loader;
@@ -95,6 +97,4 @@ describe('Controllers', function() {
       expect(location.path()).toEqual('/');
     });
   });
-  // Other controller describes here as well
-
 });

@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 describe('GutHub App', function() {
   it('should show a list of recipes', function() {
     browser().navigateTo('/#/');
